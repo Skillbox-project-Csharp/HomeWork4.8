@@ -1,0 +1,14 @@
+D:\Zub\Programming\C#\skillbox\HomeWhork4.8\FinancialAnalysis\bin\Debug\FinancialAnalysis.exe.config
+D:\Zub\Programming\C#\skillbox\HomeWhork4.8\FinancialAnalysis\bin\Debug\FinancialAnalysis.exe
+D:\Zub\Programming\C#\skillbox\HomeWhork4.8\FinancialAnalysis\bin\Debug\FinancialAnalysis.pdb
+D:\Zub\Programming\C#\skillbox\HomeWhork4.8\FinancialAnalysis\obj\Debug\FinancialAnalysis.csprojAssemblyReference.cache
+D:\Zub\Programming\C#\skillbox\HomeWhork4.8\FinancialAnalysis\obj\Debug\FinancialAnalysis.csproj.CoreCompileInputs.cache
+D:\Zub\Programming\C#\skillbox\HomeWhork4.8\FinancialAnalysis\obj\Debug\FinancialAnalysis.exe
+D:\Zub\Programming\C#\skillbox\HomeWhork4.8\FinancialAnalysis\obj\Debug\FinancialAnalysis.pdb
+D:\Zub\Programming\C#\skillbox\HomeWork4.8\FinancialAnalysis\bin\Debug\FinancialAnalysis.exe.config
+D:\Zub\Programming\C#\skillbox\HomeWork4.8\FinancialAnalysis\bin\Debug\FinancialAnalysis.exe
+D:\Zub\Programming\C#\skillbox\HomeWork4.8\FinancialAnalysis\bin\Debug\FinancialAnalysis.pdb
+D:\Zub\Programming\C#\skillbox\HomeWork4.8\FinancialAnalysis\obj\Debug\FinancialAnalysis.csprojAssemblyReference.cache
+D:\Zub\Programming\C#\skillbox\HomeWork4.8\FinancialAnalysis\obj\Debug\FinancialAnalysis.csproj.CoreCompileInputs.cache
+D:\Zub\Programming\C#\skillbox\HomeWork4.8\FinancialAnalysis\obj\Debug\FinancialAnalysis.exe
+D:\Zub\Programming\C#\skillbox\HomeWork4.8\FinancialAnalysis\obj\Debug\FinancialAnalysis.pdb
