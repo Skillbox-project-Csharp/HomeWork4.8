@@ -62,10 +62,10 @@ namespace FinancialAnalysis
         static void ResizeMatrix(ref int[,] matrix)
         {
             Console.Write(" Кол-во строк: ");
-            int matrixRow = int.Parse(Console.ReadLine());
+            int matrixRow = insertInt(0, 1000);
             Console.SetCursorPosition(30, Console.CursorTop-1);
             Console.Write(" Кол-во столбцов: ");
-            int matrixCol = int.Parse(Console.ReadLine());
+            int matrixCol = insertInt(0, 1000);
             matrix = new int[matrixRow, matrixCol];
         }
         /// <summary>
@@ -94,7 +94,7 @@ namespace FinancialAnalysis
                 int paddingLeft = 0;
                 for (int j = 0; j < matrix.GetLength(1); j++)
                 {
-                    matrix[i, j] = int.Parse(Console.ReadLine());
+                    matrix[i, j] = insertInt(int.MinValue, int.MaxValue);
                     paddingLeft += 15;
                     Console.SetCursorPosition(paddingLeft, Console.CursorTop - 1);
                 }
@@ -230,6 +230,17 @@ namespace FinancialAnalysis
             return result;
         }
 
+        static int insertInt(int min, int max)
+        {
+            int number;
+            while(true)
+            {
+                if (int.TryParse(Console.ReadLine(), out number))
+                    if (number >= min && number <= max)
+                        break;
+            }
+            return number;
+        }
         static int Main(string[] args)
         {
             #region ЗАДАНИЕ 1
@@ -243,9 +254,9 @@ namespace FinancialAnalysis
 
             Random random = new Random();
             Console.Write("Сгенерировать данные о доходе от 0 до ");
-            int incomeMax = int.Parse(Console.ReadLine());
+            int incomeMax = insertInt(int.MinValue, int.MaxValue);
             Console.Write("Сгенерировать данные о расходе от 0 до ");
-            int expenditureMax = int.Parse(Console.ReadLine());
+            int expenditureMax = insertInt(int.MinValue, int.MaxValue);
             //Заполнение данных о финансах
             for (int i = 0; i < financials.GetLength(0); i++)
             {
@@ -282,13 +293,20 @@ namespace FinancialAnalysis
             PrintLabelTask(2);
 
             Console.Write("Введите кол-во строк треугольника паскаля: ");
-            int[][] pasckal = PascalsTriangle(int.Parse(Console.ReadLine()));
-            foreach (var array in pasckal)
+            int[][] pasckal = PascalsTriangle(insertInt(int.MinValue, int.MaxValue));
+            const int cellWidth = 5;
+            int col = cellWidth * pasckal.GetLength(0);
+            for (int i = 0; i < pasckal.GetLength(0); i++)
             {
-                string str = "";
-                foreach (var element in array)
-                    str += element + " ";
-                PrintCenterString(str);
+                for(int j = 0; j <= i; j++ )
+                {
+                    if((col-5)>=0 && (col-5)<Console.BufferWidth)
+                     Console.SetCursorPosition(col-5, i+2);
+                    Console.Write($"{pasckal[i][j],cellWidth}");
+                    col += cellWidth * 2;
+                }
+                col = cellWidth * pasckal.GetLength(0) - cellWidth * (i + 1);
+                Console.WriteLine();
             }
 
             Console.ReadKey();
@@ -298,6 +316,7 @@ namespace FinancialAnalysis
 
             int[,] matrixA = new int[0, 0];
             int[,] matrixB = new int[0, 0];
+            bool pravilo = false;
             Random rand = new Random();
             while (true)
             {
@@ -342,20 +361,32 @@ namespace FinancialAnalysis
                         break;
                     case 5:
                         Console.Write("Умножить матрицу1 на число ");
-                        int number = int.Parse(Console.ReadLine());
+                        int number = insertInt(int.MinValue, int.MaxValue);
                         PrintMatrix(MatrixMultiplicationNumber(matrixA, number));
                         Console.ReadKey();
                         break;
                     case 6:
-                        PrintMatrix(MatrixAddition(matrixA, matrixB));
+                        pravilo = (matrixA.GetLength(0) == matrixB.GetLength(0)) && (matrixA.GetLength(1) == matrixB.GetLength(1));
+                        if (pravilo)
+                            PrintMatrix(MatrixAddition(matrixA, matrixB));
+                        else
+                            Console.WriteLine("Матрицы несовместимы для суммы");
                         Console.ReadKey();
                         break;
                     case 7:
-                        PrintMatrix(MatrixSubtraction(matrixA, matrixB));
+                        pravilo = (matrixA.GetLength(0) == matrixB.GetLength(0)) && (matrixA.GetLength(1) == matrixB.GetLength(1));
+                        if (pravilo)
+                            PrintMatrix(MatrixSubtraction(matrixA, matrixB));
+                        else
+                            Console.WriteLine("Матрицы несовместимы для разности");
                         Console.ReadKey();
                         break;
                     case 8:
-                        PrintMatrix(MatrixMultiplication(matrixA, matrixB));
+                        pravilo = matrixA.GetLength(1) == matrixB.GetLength(0);
+                        if(pravilo)
+                            PrintMatrix(MatrixMultiplication(matrixA, matrixB));
+                        else
+                            Console.WriteLine("Матрицы несовместимы для умножения");
                         Console.ReadKey();
                         break;
                     case 9:
